@@ -66,7 +66,11 @@ class Littlefield(object):
             l = line.split("\t")
             for i in range(0, len(keys)):
                 if len(l) > i and l[i] != "":
-                    out[keys[i]].append(float(l[i]))
+                    try:
+                        out[keys[i]].append(float(l[i]))
+                    except ValueError:
+                        value = "".join(l[i].split(","))
+                        out[keys[i]].append(float(value))
         return out
 
     def get_station(self, station):
