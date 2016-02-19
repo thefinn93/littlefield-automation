@@ -20,5 +20,7 @@ for i in range(1, 4):
                     (i, utilitization, station['number of machines'], machines))
         littlefield.update_machine_count(station, machines)
     elif utilitization < THRESHOLD_LOW and station['number of machines'] > 1:
-        notify.send("Station %s has a utilitization of %s. Maybe we should sell a machine" %
-                    (i, utilitization))
+        machines = station['number of machines'] - 1
+        notify.send("Station %s has a utilitization of %s. Decreasing machines from %s to %s" %
+                    (i, utilitization, station['number of machines'], machines))
+        littlefield.update_machine_count(station, machines)
