@@ -11,7 +11,7 @@ titles = {
     "JOBIN": {"title": "Number of jobs accepted per day", "unit": "jobs"},
     "JOBQ": {"title": "Number of jobs waiting", "unit": "jobs"},
     "INV": {"title": "Inventory levels", "unit": "kits"},
-    "JOBOUT": {"jobs": "Number of completed jobs", "unit": "jobs"},
+    "JOBOUT": {"title": "Number of completed jobs", "unit": "jobs"},
     "JOBT": {"title": "Lead times", "unit": "time"},
     "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
 }
