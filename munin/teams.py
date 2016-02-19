@@ -13,7 +13,7 @@ if len(sys.argv) > 1:
 if config:
     print("""graph_title Leaderboard
 graph_info Shows the position on the leadership board
-graph_category munin
+graph_category littlefield
 graph_vlabel Cash ($)
 """)
 
