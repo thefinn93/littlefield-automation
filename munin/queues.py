@@ -11,15 +11,16 @@ if len(sys.argv) > 1:
     if sys.argv[1] == "config":
         config = True
 if config:
-    print("""graph_title Littlefield Simulation Leaderboard
-graph_info Shows the position on the leadership board
-graph_category bullshit
-graph_vlabel Cash ($)
+    print("""graph_title Queue Size Per Station
+graph_info Shows the queue size per station
+graph_category littlefield
+graph_vlabel Kits
 """)
 
 littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
-for team in littlefield.get_standings():
+for station in range(1, 4):
     if config:
-        print("%s.label %s" % (team['name'], team['name']))
+        print("station%s.label Station %s" % (station, station))
     else:
-        print("%s.value %s" % (team['name'], team['cash']))
+        size = littlefield.get_data("S%sQ" % station)['average'][-1]
+        print("station%s.value %s" % (station, size))
