@@ -15,6 +15,7 @@ def avg(data, size):
 
 for station in range(1, 4):
     print("Station %s" % station)
-    print(littlefield.get_station(station))
+    machines = littlefield.get_station(station)['number of machines']
     util = littlefield.get_data("S%sUTIL" % (station))['average']
-    print("Utilitization: %s %s %s" % (util[-1], avg(util, 3), avg(util, 10)))
+    print("Utilitization: [ %.2f%% ]\t[ %.2f%% ]\t[ %.2f%% ] (%s machines)" %
+          ((util[-1]*100), (avg(util, 3)*100), (avg(util, 10)*100), machines))
