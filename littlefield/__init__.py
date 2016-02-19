@@ -93,3 +93,17 @@ class Littlefield(object):
             "id": station,
             "cancel": "cancel"
         })
+
+    def get_standings(self):
+        standings = self.get('Standing')
+        soup = BeautifulSoup(standings.content, "html.parser").text.split("\n\n")
+        out = []
+        for row in soup[4:]:
+            if "\n" in row:
+                standing, team, cash = row.split("\n")
+                cash = "".join(cash.strip().split(","))
+                out.append({
+                    "name": team.strip(),
+                    "cash": int(cash)
+                })
+        return out
