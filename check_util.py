@@ -6,12 +6,10 @@ import notify
 config = ConfigParser()
 config.read(['littlefield.ini'])
 
-THRESHOLD_HIGH = 0.7
-THRESHOLD_LOW = 0.2
+THRESHOLD_HIGH = float(config['littlefield']['high'])
+THRESHOLD_LOW = float(config['littlefield']['low'])
 
 littlefield = Littlefield(config['littlefield']['user'], config['littlefield']['password'])
-
-print(littlefield.get_status())
 
 for i in range(1, 4):
     station = littlefield.get_station(i)
