@@ -16,7 +16,10 @@ titles = {
     "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
 }
 
-name = sys.argv[0].split("_")[1]
+if "_" in sys.argv[0]:
+    name = sys.argv[0].split("_")[1]
+else:
+    name = sys.argv[-1]
 
 config = False
 if len(sys.argv) > 1:
@@ -37,4 +40,4 @@ else:
     for k in data.keys():
         if k != "days":
             key = k
-    print("station%s.value %s" % (name, data[key][-1]))
+    print("%s.value %s" % (name, data[key][-1]))
