@@ -8,8 +8,7 @@ config.read(['littlefield.ini'])
 
 
 def send(text, subject="Littlefield Update"):
-    if config['mail']['print']:
-        print(text)
+    if 'debug' in config['mail']:
     message = MIMEText(text)
     message['Subject'] = subject
     message['From'] = config['mail']['from']
