@@ -9,7 +9,12 @@ littlefield = Littlefield(config['littlefield']['user'], config['littlefield']['
 
 print(littlefield.get_status())
 
+
+def avg(data, size):
+    return sum(util[((size*-1)-1):-1])/size
+
 for station in range(1, 4):
     print("Station %s" % station)
     print(littlefield.get_station(station))
-    print(littlefield.get_data("S%sUTIL" % (station))['average'][-1])
+    util = littlefield.get_data("S%sUTIL" % (station))['average']
+    print("Utilitization: %s %s %s" % (util[-1], avg(util, 3), avg(util, 10)))
