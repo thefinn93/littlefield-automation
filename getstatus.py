@@ -15,9 +15,9 @@ for key, value in status.items():
 def avg(data, size):
     return sum(util[((size*-1)-1):-1])/size
 
+print("Station\t\t1 day avg\t3 day avg\t10 day avg")
 for station in range(1, 4):
-    print("Station %s" % station)
     machines = littlefield.get_station(station)['number of machines']
     util = littlefield.get_data("S%sUTIL" % (station))['average']
-    print("Utilitization: [ %.2f%% ]\t[ %.2f%% ]\t[ %.2f%% ] (%s machines)" %
-          ((util[-1]*100), (avg(util, 3)*100), (avg(util, 10)*100), machines))
+    print("Station %s:\t[ %.2f%% ]\t[ %.2f%% ]\t[ %.2f%% ] (%s machines)" %
+          (station, (util[-1]*100), (avg(util, 3)*100), (avg(util, 10)*100), machines))
