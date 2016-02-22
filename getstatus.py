@@ -7,7 +7,9 @@ config.read(['littlefield.ini'])
 
 littlefield = Littlefield(config['littlefield']['user'], config['littlefield']['password'])
 
-print(littlefield.get_status())
+status = littlefield.get_status()
+for key, value in status.items():
+    print("%s:\t%s" % (key, value))
 
 
 def avg(data, size):
