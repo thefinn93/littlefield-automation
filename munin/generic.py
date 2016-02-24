@@ -7,7 +7,7 @@ if lib is not None:
 from littlefield import Littlefield
 
 def avg(data, size):
-    return sum(util[((size*-1)-1):-1])/size
+    return sum(data[((size*-1)-1):-1])/size
 
 titles = {
     "JOBIN": {"title": "Number of jobs accepted per day", "unit": "jobs"},
