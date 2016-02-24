@@ -16,6 +16,12 @@ titles = {
     "JOBOUT": {"title": "Number of completed jobs", "unit": "jobs"},
     "JOBT": {"title": "Lead times", "unit": "Days"},
     "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
+    "S1Q": {"title": "Station 1 Queue Size", "Kits"},
+    "S2Q": {"title": "Station 2 Queue Size", "Kits"},
+    "S3Q": {"title": "Station 3 Queue Size", "Kits"},
+    "S1UTIL": {"title": "Station 1 Utilitization", "Utilitization"},
+    "S2UTIL": {"title": "Station 2 Utilitization", "Utilitization"},
+    "S3UTIL": {"title": "Station 3 Utilitization", "Utilitization"}
 }
 
 if "_" in sys.argv[0]:
