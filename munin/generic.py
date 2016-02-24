@@ -39,11 +39,7 @@ if config:
     print("%s-3.label %s (3 day average)" % (name, titles[name]['title']))
     print("%s-10.label %s (10 day average)" % (name, titles[name]['title']))
 else:
-    key = None
-    data = littlefield.get_data(name)
-    for k in data.keys():
-        if k != "days" and k != "day":
-            key = k
+    key = "average"
     print("%s.value %s" % (name, data[key][-1]))
     print("%s-3.value %s" % (name, avg(data[key], 3)))
     print("%s-10.value %s" % (name, avg(data[key], 10)))
