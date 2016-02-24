@@ -6,20 +6,17 @@ import notify
 config = ConfigParser()
 config.read(['littlefield.ini'])
 
-THRESHOLD_HIGH = float(config['littlefield']['high'])
-THRESHOLD_LOW = float(config['littlefield']['low'])
-
 littlefield = Littlefield(config['littlefield']['user'], config['littlefield']['password'])
 
 for i in range(1, 4):
     station = littlefield.get_station(i)
     utilitization = littlefield.get_data("S%sUTIL" % i)['average'][-1]
-    if utilitization > THRESHOLD_HIGH:
+    if utilitization > float(config['littlefield']['util_high']):
         machines = station['number of machines'] + 1
         notify.send("Station %s has a utilitization of %s. Increasing machines from %s to %s" %
                     (i, utilitization, station['number of machines'], machines))
         littlefield.update_machine_count(station, machines)
-    elif utilitization < THRESHOLD_LOW and station['number of machines'] > 1:
+    elif utilitization < float(config['littlefield']['util_low']) and station['number of machines'] > 1:
         machines = station['number of machines'] - 1
         notify.send("Station %s has a utilitization of %s. Decreasing machines from %s to %s" %
                     (i, utilitization, station['number of machines'], machines))
