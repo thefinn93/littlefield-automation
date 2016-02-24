@@ -14,7 +14,7 @@ titles = {
     "JOBQ": {"title": "Number of jobs waiting", "unit": "jobs"},
     "INV": {"title": "Inventory levels", "unit": "kits"},
     "JOBOUT": {"title": "Number of completed jobs", "unit": "jobs"},
-    "JOBT": {"title": "Lead times", "unit": "time"},
+    "JOBT": {"title": "Lead times", "unit": "Days"},
     "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
 }
 
@@ -42,7 +42,7 @@ else:
     key = None
     data = littlefield.get_data(name)
     for k in data.keys():
-        if k != "days":
+        if k != "days" and k != "day":
             key = k
     print("%s.value %s" % (name, data[key][-1]))
     print("%s-3.value %s" % (name, avg(data[key], 3)))
