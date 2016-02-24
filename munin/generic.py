@@ -40,6 +40,7 @@ if config:
     print("graph_vlabel %s" % titles[name]['unit'])
 
 littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
+data = littlefield.get_data(name)
 if config:
     print("%s.label %s" % (name, titles[name]['title']))
     print("%s-3.label %s (3 day average)" % (name, titles[name]['title']))
