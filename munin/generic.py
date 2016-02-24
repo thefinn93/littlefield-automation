@@ -6,6 +6,8 @@ if lib is not None:
     sys.path.append(lib)
 from littlefield import Littlefield
 
+def avg(data, size):
+    return sum(util[((size*-1)-1):-1])/size
 
 titles = {
     "JOBIN": {"title": "Number of jobs accepted per day", "unit": "jobs"},
@@ -34,6 +36,8 @@ if config:
 littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
 if config:
     print("%s.label %s" % (name, titles[name]['title']))
+    print("%s-3.label %s (3 day average)" % (name, titles[name]['title']))
+    print("%s-10.label %s (10 day average)" % (name, titles[name]['title']))
 else:
     key = None
     data = littlefield.get_data(name)
@@ -41,3 +45,5 @@ else:
         if k != "days":
             key = k
     print("%s.value %s" % (name, data[key][-1]))
+    print("%s-3.value %s" % (name, avg(data[key], 3)))
+    print("%s-10.value %s" % (name, avg(data[key], 10)))
