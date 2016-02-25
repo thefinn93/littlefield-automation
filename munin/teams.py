@@ -22,7 +22,7 @@ littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_
 for team in littlefield.get_standings():
     if config:
         print("%s.label %s" % (team['name'], team['name']))
-        if derative:
+        if derive:
             print("%s.type DERIVE" % team['name'])
     else:
         print("%s.value %s" % (team['name'], team['cash']))
