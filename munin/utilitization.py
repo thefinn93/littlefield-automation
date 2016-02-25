@@ -18,9 +18,9 @@ try:
             config = True
     if config:
         print("""graph_title Station Utilitization
-    graph_info Shows the utilitization of each station
-    graph_category littlefield
-    graph_vlabel Percent""")
+graph_info Shows the utilitization of each station
+graph_category littlefield
+graph_vlabel Percent""")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     for station in range(1, 4):

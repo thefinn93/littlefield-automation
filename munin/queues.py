@@ -15,9 +15,9 @@ try:
             config = True
     if config:
         print("""graph_title Queue Size
-    graph_info Shows the queue size
-    graph_category littlefield
-    graph_vlabel Kits""")
+graph_info Shows the queue size
+graph_category littlefield
+graph_vlabel Kits""")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     for station in range(1, 4):
