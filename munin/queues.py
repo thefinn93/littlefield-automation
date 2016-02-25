@@ -6,9 +6,6 @@ if lib is not None:
     sys.path.append(lib)
 from littlefield import Littlefield
 
-def avg(data, size):
-    return sum(data[((size*-1)-1):-1])/size
-
 config = False
 if len(sys.argv) > 1:
     if sys.argv[1] == "config":
@@ -24,13 +21,6 @@ littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_
 for station in range(1, 4):
     if config:
         print("station%s.label Station %s" % (station, station))
-        print("station%s.colour COLOR%s" % (station, station-1))
-        print("station%s-3.label Station %s (3 day average)" % (station, station))
-        print("station%s-3.colour COLOR%" % (station, station+8))
-        print("station%s-10.label Station %s (10 day average)" % (station, station))
-        print("station%s-10.colour COLOR%s" % (station, station+16))
     else:
         size = littlefield.get_data("S%sQ" % station)['average']
         print("station%s.value %s" % (station, size[-1]))
-        print("station%s-3.value %s" % (station, avg(size, 3)))
-        print("station%s-10.value %s" % (station, avg(size, 10)))

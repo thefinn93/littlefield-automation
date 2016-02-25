@@ -25,15 +25,6 @@ for station in range(1, 4):
     if config:
         print("station%s.label Station %s" % (station, station))
         print("station%s.warning 10:80" % station)
-        print("station%s.colour COLOR%s" % (station, station-1))
-        print("station%s-3.label Station %s (3 day average)" % (station, station))
-        print("station%s-3.warning 10:80" % station)
-        print("station%s-3.colour COLOR%" % (station, station+8))
-        print("station%s-10.label Station %s" % (station, station))
-        print("station%s-10.warning 10:80" % station)
-        print("station%s-10.colour COLOR%s" % (station, station+16))
     else:
         util = littlefield.get_data("S%sUTIL" % station)['average']
         print("station%s.value %s" % (station, util[-1]*100))
-        print("station%s-3.value %s" % (station, avg(util, 3)*100))
-        print("station%s-10.value %s" % (station, avg(util, 10)*100))
