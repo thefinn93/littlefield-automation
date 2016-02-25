@@ -14,7 +14,7 @@ try:
         if sys.argv[1] == "config":
             config = True
     if config:
-        title = "Cash Levels by Team" if not derive else "Cash ∆ by Team"
+        title = "Cash Levels by Team" if not derive else "Cash delta by Team"
         print("""graph_title %s
 graph_info Shows the position on the leadership board
 graph_category littlefield
