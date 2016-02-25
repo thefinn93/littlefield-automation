@@ -18,8 +18,7 @@ try:
         print("""graph_title %s
 graph_info Shows the position on the leadership board
 graph_category littlefield
-graph_vlabel Cash ($)
-    """ % title)
+graph_vlabel Cash ($)""" % title)
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     for team in littlefield.get_standings():
