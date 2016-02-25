@@ -12,11 +12,11 @@ if len(sys.argv) > 1:
     if sys.argv[1] == "config":
         config = True
 if config:
-    print("""graph_title Leaderboard
+    print("""graph_title %s
 graph_info Shows the position on the leadership board
 graph_category littlefield
 graph_vlabel Cash ($)
-""")
+""" % "Cash Levels by Team" if not derive else "Cash Delta by Team")
 
 littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
 for team in littlefield.get_standings():
