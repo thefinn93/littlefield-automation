@@ -7,6 +7,7 @@ if lib is not None:
 from littlefield import Littlefield
 
 config = False
+derive = "_derative" in sys.argv[0]
 if len(sys.argv) > 1:
     if sys.argv[1] == "config":
         config = True
@@ -21,5 +22,7 @@ littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_
 for team in littlefield.get_standings():
     if config:
         print("%s.label %s" % (team['name'], team['name']))
+        if derative:
+            print("%s.type DERIVE" % team['name'])
     else:
         print("%s.value %s" % (team['name'], team['cash']))
