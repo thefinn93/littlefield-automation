@@ -13,10 +13,10 @@ try:
         return sum(data[((size*-1)-1):-1])/size
 
     titles = {
-        "JOBIN": {"title": "Number of jobs accepted per day", "unit": "jobs"},
-        "JOBQ": {"title": "Number of jobs waiting", "unit": "jobs"},
+        "JOBIN": {"title": "Jobs accepted per day", "unit": "jobs"},
+        "JOBQ": {"title": "Jobs waiting", "unit": "jobs"},
         "INV": {"title": "Inventory levels", "unit": "kits"},
-        "JOBOUT": {"title": "Number of completed jobs", "unit": "jobs"},
+        "JOBOUT": {"title": "Completed jobs", "unit": "jobs"},
         "JOBT": {"title": "Lead times", "unit": "Days"},
         "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
         "S1Q": {"title": "Station 1 Queue Size", "unit": "Kits"},
