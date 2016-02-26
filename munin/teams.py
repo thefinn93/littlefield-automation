@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import os
+import collections
 lib = os.getenv("LITTLEFIELD_PATH")
 if lib is not None:
     sys.path.append(lib)
@@ -24,12 +25,15 @@ graph_vlabel Cash ($)""" % title)
             print("graph_scale no")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
+    teams = {}
     for team in littlefield.get_standings():
+        teams[team['name']] = team['cash']
+    for team in sorted(teams.items()):
         if config:
-            print("%s.label %s" % (team['name'], team['name']))
+            print("%s.label %s" % (team[0], team[0]))
             if derive:
-                print("%s.type DERIVE" % team['name'])
+                print("%s.type DERIVE" % team[0])
         else:
-            print("%s.value %s" % (team['name'], team['cash']))
-except:
+            print("%s.value %s" % (team[0], team[1]))
+except KeyboardInterrupt:
     raven.captureException()
