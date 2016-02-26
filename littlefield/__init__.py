@@ -111,3 +111,15 @@ class Littlefield(object):
                     "cash": int(cash)
                 })
         return out
+
+    def get_cash(self):
+        lines = BeautifulSoup(self.get('CashStatus').content, "html.parser").text.split("\n")
+        out = {}
+        out['revenue'] = self.getamount(lines[13])
+        out['interest'] = self.getamount(lines[15])
+        out['machines'] = self.getamount(lines[19])*-1
+        out['inventory'] = self.getamount(lines[21])*-1
+        return out
+
+    def getamount(self, amount, t=int):
+        return t("".join(amount.split(",")))
