@@ -18,18 +18,18 @@ try:
         print("graph_info Shows the various sources and uses of cash")
         print("graph_category littlefield")
         print("graph_vlabel $")
-
-    littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
-    data = littlefield.get_cash()
-
-    draw = "AREA"
-    for key, value in data.items():
-        if config:
-            print("%s.label %s" % (key, key))
-            print("%s.draw %s" % (key, draw))
-            if draw == "AREA":
-                draw = "STACK"  # The first one has to say AREA, then all following must say STACK
-        else:
+        print("inventory.label inventory")
+        print("inventory.draw AREA")
+        print("revenue.label revenue")
+        print("revenue.draw STACK")
+        print("machines.label machines")
+        print("machines.draw AREA")
+        print("interest.label interest")
+        print("interest.draw STACK")
+    else:
+        littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
+        data = littlefield.get_cash()
+        for key, value in data.items():
             print("%s.value %s" % (key, value))
 except:
     raven.captureException()
