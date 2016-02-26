@@ -20,7 +20,8 @@ try:
         print("""graph_title Station Utilitization
 graph_info Shows the utilitization of each station
 graph_category littlefield
-graph_scale no
+graph_scale
+graph_args --upper-limit 100 -l 0
 graph_vlabel %""")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
