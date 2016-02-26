@@ -13,18 +13,18 @@ try:
         return sum(data[((size*-1)-1):-1])/size
 
     titles = {
-        "JOBIN": {"title": "Jobs accepted per day", "unit": "jobs"},
-        "JOBQ": {"title": "Jobs waiting", "unit": "jobs"},
+        "JOBIN": {"title": "Jobs accepted per day", "unit": "jobs", "scale": "no"},
+        "JOBQ": {"title": "Jobs waiting", "unit": "jobs", "scale": "no"},
         "INV": {"title": "Inventory levels", "unit": "kits"},
         "JOBOUT": {"title": "Completed jobs", "unit": "jobs"},
-        "JOBT": {"title": "Lead times", "unit": "Days"},
+        "JOBT": {"title": "Lead times", "unit": "Days", "scale": "no"},
         "JOBREV": {"title": "Revenue", "unit": "Dollars ($)"},
-        "S1Q": {"title": "Station 1 Queue Size", "unit": "Kits"},
-        "S2Q": {"title": "Station 2 Queue Size", "unit": "Kits"},
-        "S3Q": {"title": "Station 3 Queue Size", "unit": "Kits"},
-        "S1UTIL": {"title": "Station 1 Utilitization", "unit": "Utilitization"},
-        "S2UTIL": {"title": "Station 2 Utilitization", "unit": "Utilitization"},
-        "S3UTIL": {"title": "Station 3 Utilitization", "unit": "Utilitization"}
+        "S1Q": {"title": "Station 1 Queue Size", "unit": "Kits", "scale": "no"},
+        "S2Q": {"title": "Station 2 Queue Size", "unit": "Kits", "scale": "no"},
+        "S3Q": {"title": "Station 3 Queue Size", "unit": "Kits", "scale": "no"},
+        "S1UTIL": {"title": "Station 1 Utilitization", "unit": "Utilitization", "scale": "no"},
+        "S2UTIL": {"title": "Station 2 Utilitization", "unit": "Utilitization", "scale": "no"},
+        "S3UTIL": {"title": "Station 3 Utilitization", "unit": "Utilitization", "scale": "no"}
     }
 
     if "_" in sys.argv[0]:
@@ -41,6 +41,8 @@ try:
         print("graph_info Shows the %s" % titles[name]['title'])
         print("graph_category littlefield")
         print("graph_vlabel %s" % titles[name]['unit'])
+        if "scale" in titles[name]:
+            print("graph_scale no")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     data = littlefield.get_data(name)
