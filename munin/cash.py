@@ -28,5 +28,5 @@ try:
             print("%s.draw STACK")
         else:
             print("%s.value %s" % (key, value))
-except KeyboardInterrupt:
+except:
     raven.captureException()
