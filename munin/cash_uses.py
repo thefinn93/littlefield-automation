@@ -26,7 +26,7 @@ try:
     else:
         littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
         data = littlefield.get_cash()
-        for key, value in data.items():
-            print("%s.value %s" % (key, value))
+        print("machines.value %s" % data['machines'])
+        print("inventory.value %s" % data['inventory'])
 except:
     raven.captureException()
