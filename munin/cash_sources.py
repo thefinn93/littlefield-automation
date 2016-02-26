@@ -18,8 +18,8 @@ try:
         print("graph_info Shows the various sources and uses of cash")
         print("graph_category littlefield")
         print("graph_vlabel $")
-        print("inventory.label inventory")
-        print("inventory.draw AREA")
+        print("interest.label interest")
+        print("interest.draw AREA")
         print("revenue.label revenue")
         print("revenue.draw STACK")
     else:

@@ -20,8 +20,9 @@ try:
         print("graph_vlabel Dollars ($)")
         print("machines.label machines")
         print("machines.draw AREA")
-        print("interest.label interest")
-        print("interest.draw STACK")
+        print("inventory.label inventory")
+        print("inventory.draw STACK")
+
     else:
         littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
         data = littlefield.get_cash()
