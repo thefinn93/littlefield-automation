@@ -31,6 +31,6 @@ graph_vlabel %""")
             print("station%s.warning 10:80" % station)
         else:
             util = littlefield.get_data("S%sUTIL" % station)['average']
-            print("station%s.value %s" % (station, util[-1]))
+            print("station%s.value %s" % (station, util[-1]*100))
 except:
     raven.captureException()
