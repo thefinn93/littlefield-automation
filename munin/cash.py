@@ -27,6 +27,6 @@ try:
             print("%s.label %s" % (key, key))
             print("%s.draw STACK")
         else:
-            print("%s.values %s" % (key, value))
+            print("%s.value %s" % (key, value))
 except KeyboardInterrupt:
     raven.captureException()
