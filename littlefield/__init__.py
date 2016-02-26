@@ -117,8 +117,8 @@ class Littlefield(object):
         out = {}
         out['revenue'] = self.getamount(lines[13])
         out['interest'] = self.getamount(lines[15])
-        out['machines'] = self.getamount(lines[19])*-1
-        out['inventory'] = self.getamount(lines[21])*-1
+        out['machines'] = self.getamount(lines[19])
+        out['inventory'] = self.getamount(lines[21])
         return out
 
     def getamount(self, amount, t=int):
