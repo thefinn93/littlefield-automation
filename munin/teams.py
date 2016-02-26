@@ -18,10 +18,10 @@ try:
         print("""graph_title %s
 graph_info Shows the position on the leadership board
 graph_category littlefield
-graph_scale no
 graph_vlabel Cash ($)""" % title)
         if derive:
             print("graph_args --upper-limit 5 --lower-limit 0")
+            print("graph_scale no")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     for team in littlefield.get_standings():

@@ -17,7 +17,6 @@ try:
         print("""graph_title Queue Size
 graph_info Shows the queue size
 graph_category littlefield
-graph_scale no
 graph_vlabel Kits""")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))

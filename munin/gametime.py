@@ -17,7 +17,6 @@ try:
         print("graph_title Game Time")
         print("graph_info Shows the number of game days that have passed")
         print("graph_category littlefield")
-        print("graph_scale no")
         print("graph_vlabel days")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))

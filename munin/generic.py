@@ -40,7 +40,6 @@ try:
         print("graph_title %s" % titles[name]['title'])
         print("graph_info Shows the %s" % titles[name]['title'])
         print("graph_category littlefield")
-        print("graph_scale no")
         print("graph_vlabel %s" % titles[name]['unit'])
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
