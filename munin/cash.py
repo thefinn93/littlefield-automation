@@ -22,10 +22,13 @@ try:
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     data = littlefield.get_cash()
 
+    draw = "AREA"
     for key, value in data.items():
         if config:
             print("%s.label %s" % (key, key))
-            print("%s.draw STACK" % key)
+            print("%s.draw %s" % (key, draw))
+            if draw == "AREA":
+                draw = "STACK"  # The first one has to say AREA, then all following must say STACK
         else:
             print("%s.value %s" % (key, value))
 except:
