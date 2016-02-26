@@ -25,7 +25,7 @@ try:
     for key, value in data.items():
         if config:
             print("%s.label %s" % (key, key))
-            print("%s.draw STACK")
+            print("%s.draw STACK" % key)
         else:
             print("%s.value %s" % (key, value))
 except:
