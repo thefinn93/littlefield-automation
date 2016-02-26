@@ -20,7 +20,8 @@ try:
         print("""graph_title Station Utilitization
 graph_info Shows the utilitization of each station
 graph_category littlefield
-graph_vlabel Percent""")
+graph_scale no
+graph_vlabel %""")
 
     littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
     for station in range(1, 4):
@@ -29,6 +30,6 @@ graph_vlabel Percent""")
             print("station%s.warning 10:80" % station)
         else:
             util = littlefield.get_data("S%sUTIL" % station)['average']
-            print("station%s.value %s" % (station, util[-1]*100))
+            print("station%s.value %s" % (station, util[-1]))
 except:
     raven.captureException()

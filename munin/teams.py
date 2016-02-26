@@ -18,6 +18,7 @@ try:
         print("""graph_title %s
 graph_info Shows the position on the leadership board
 graph_category littlefield
+graph_scale no
 graph_vlabel Cash ($)""" % title)
         if derive:
             print("graph_args --upper-limit 10 -l -10")
