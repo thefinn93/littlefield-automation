@@ -35,5 +35,5 @@ graph_vlabel Cash ($)""" % title)
                 print("%s.type DERIVE" % team[0])
         else:
             print("%s.value %s" % (team[0], team[1]))
-except KeyboardInterrupt:
+except:
     raven.captureException()
