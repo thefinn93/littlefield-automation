@@ -44,13 +44,14 @@ try:
         if "scale" in titles[name]:
             print("graph_scale no")
 
-    littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
-    data = littlefield.get_data(name)
+
     if config:
         print("%s.label %s" % (name, titles[name]['title']))
         print("%s-3.label %s (3 day average)" % (name, titles[name]['title']))
         print("%s-10.label %s (10 day average)" % (name, titles[name]['title']))
     else:
+        littlefield = Littlefield(os.getenv("LITTLEFIELD_USER"), os.getenv("LITTLEFIELD_PW"))
+        data = littlefield.get_data(name)
         key = "average"
         print("%s.value %s" % (name, data[key][-1]))
         print("%s-3.value %s" % (name, avg(data[key], 3)))
